@@ -13,26 +13,26 @@ const i18n = locales[siteConfig.locale];
 
 const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
 const featuredPosts = posts.filter(({ data }) => data.isFeatured);
-const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-const featuredProjects = projects.filter(({ data }) => data.isFeatured);
+//const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
+//const featuredProjects = projects.filter(({ data }) => data.isFeatured);
 ---
 
 <BaseLayout description={siteConfig.description} image={siteConfig.image}>
     <Hero />
     {
         featuredPosts?.length > 0 && (
-            <div class="mb-8 sm:mb-16">
-                <h2 class="mb-12 text-lg font-serif italic sm:text-xl">{i18n.pages.home.writing}</h2>
+            <div class='mb-8 sm:mb-16'>
+                <h2 class='mb-12 text-lg font-serif italic sm:text-xl'>{i18n.pages.home.writing}</h2>
                 {featuredPosts.map((post) => (
-                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
+                    <PostPreview post={post} class='mb-10 sm:mb-12' headingLevel='h3' />
                 ))}
-                <div class="mt-12 sm:mt-16">
-                    <Button href="/blog">{i18n.pages.home.viewAllPosts}</Button>
+                <div class='mt-12 sm:mt-16'>
+                    <Button href='/blog'>{i18n.pages.home.viewAllPosts}</Button>
                 </div>
             </div>
         )
     }
-    {
+    <!--{
         featuredProjects?.length > 0 && (
             <div class="mb-16 sm:mb-24">
                 <h2 class="mb-12 text-lg font-serif italic sm:text-xl">{i18n.pages.home.projects}</h2>
@@ -44,5 +44,5 @@ const featuredProjects = projects.filter(({ data }) => data.isFeatured);
                 </div>
             </div>
         )
-    }
+    }-->
 </BaseLayout>

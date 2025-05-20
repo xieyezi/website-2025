@@ -1,9 +1,9 @@
 ---
 import siteConfig from '../data/site-config';
 
-type Props = { date: Date };
+type Props = { date?: Date };
 
-const { date } = Astro.props;
+const { date = new Date() } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
